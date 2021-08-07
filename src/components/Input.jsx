@@ -28,20 +28,22 @@ function Input(props) {
                 value={text} onClick={() => setFocus(true)}
                 placeholder="New Item"
             />
-            <input
-                type="date"
-                className="form-control"
-                onChange={(event) => setDate(changeDateFormatToRequired(event.target.value))}
-                value={changeDateFormatToNotRequired(date)}
-                style={{display: focus ? "block" : "none"}}
-            />
-            <input
-                type="time"
-                className="form-control"
-                onChange={(event) => setTime(event.target.value)}
-                value={time}
-                style={{display: focus ? "block" : "none"}}
-            />
+            <div className="input-group">
+                <input
+                    type="date"
+                    className="form-control"
+                    onChange={(event) => setDate(changeDateFormatToRequired(event.target.value))}
+                    value={changeDateFormatToNotRequired(date)}
+                    style={{display: focus ? "block" : "none"}}
+                />
+                <input
+                    type="time"
+                    className="form-control"
+                    onChange={(event) => setTime(event.target.value)}
+                    value={time}
+                    style={{display: focus ? "block" : "none"}}
+                />
+            </div>
             <Zoom in={focus ? true : false}>
                 <Fab onClick={() => {
                         props.onAdd({text: text, date: date, time: time});
